@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Página Principal -->
+  <url>
+    <loc>https://SEU-DOMINIO-AQUI.com/</loc>
+    <lastmod>2025-01-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- Categoria: Roupa Forte -->
+  <url>
+    <loc>https://SEU-DOMINIO-AQUI.com/#roupa-forte</loc>
+    <lastmod>2025-01-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Categoria: Base e Corretivo -->
+  <url>
+    <loc>https://SEU-DOMINIO-AQUI.com/#base-corretivo</loc>
+    <lastmod>2025-01-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Categoria: Cabelos Lisos -->
+  <url>
+    <loc>https://SEU-DOMINIO-AQUI.com/#cabelos-lisos</loc>
+    <lastmod>2025-01-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Categoria: Roupa Estampada -->
+  <url>
+    <loc>https://SEU-DOMINIO-AQUI.com/#roupa-estampada</loc>
+    <lastmod>2025-01-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+</urlset>

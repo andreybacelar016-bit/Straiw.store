@@ -1,0 +1,19 @@
+# Robots.txt para Site de Beleza e Estética
+# Otimizado para SEO - Andrey Bacelar
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://SEU-DOMINIO-AQUI.com/sitemap.xml
+
+# Crawl-delay (evita sobrecarga)
+Crawl-delay: 1
+
+# Permitir rastreamento de imagens
+User-agent: Googlebot-Image
+Allow: /
+
+# Otimização para Mobile
+User-agent: Googlebot-Mobile
+Allow: /
