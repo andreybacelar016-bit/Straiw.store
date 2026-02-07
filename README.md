@@ -1,7 +1,7 @@
 
 ```
 straw-site/
-├── index.html          ← Página principal (RENOMEAR se necessário)
+├── index.html          ← Página principal 
 ├── moda.html           ← Catálogo de moda
 ├── maquiagem.html      ← Catálogo de maquiagem
 ├── privacidade.html    ← Política de privacidade
