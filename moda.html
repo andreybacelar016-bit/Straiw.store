@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Straw Urban — Moda Streetwear Autêntica | Coleção Exclusiva</title>
+  <meta name="description" content="Descubra a coleção de streetwear da Straw Urban. Camisetas oversized, hoodies premium e peças que definem identidade. Qualidade e estilo urbano autêntico.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --black: #0a0a0a;
+      --dark-grey: #1a1a1a;
+      --medium-grey: #2a2a2a;
+      --light-grey: #888;
+      --yellow: #FFD700;
+      --yellow-bright: #FFE44D;
+      --white: #ffffff;
+      --off-white: #f5f5f5;
+      
+      --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 20px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+    }
+
+    .nav-logo {
+      height: 45px;
+      width: auto;
+      transition: transform 0.3s var(--transition-smooth);
+    }
+
+    .nav-logo:hover {
+      transform: scale(1.05);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 35px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color 0.3s var(--transition-smooth);
+    }
+
+    .nav-links a:hover {
+      color: var(--yellow);
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--yellow);
+      text-decoration: none;
+      font-weight: 600;
+      transition: gap 0.3s var(--transition-smooth);
+    }
+
+    .back-btn:hover {
+      gap: 12px;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 140px 5% 80px;
+      background: 
+        linear-gradient(135deg, rgba(10, 10, 10, 0.95) 0%, rgba(26, 26, 26, 0.9) 100%),
+        url('https://images.unsplash.com/photo-1523381140794-a1eef18a37c7?w=1920&q=80') center/cover;
+      background-attachment: fixed;
+      text-align: center;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      padding: 8px 20px;
+      background: rgba(255, 215, 0, 0.1);
+      border: 1px solid var(--yellow);
+      color: var(--yellow);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 900;
+      margin-bottom: 25px;
+      background: linear-gradient(135deg, var(--white) 0%, var(--yellow) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      color: var(--light-grey);
+      max-width: 700px;
+      margin: 0 auto 40px;
+      line-height: 1.8;
+    }
+
+    /* Filters */
+    .filters {
+      padding: 60px 5%;
+      background: var(--dark-grey);
+    }
+
+    .filters-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 12px 30px;
+      background: transparent;
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s var(--transition-smooth);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--yellow);
+      color: var(--black);
+      border-color: var(--yellow);
+    }
+
+    /* Products Grid */
+    .products {
+      padding: 80px 5%;
+      background: var(--black);
+    }
+
+    .products-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-header h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .section-header p {
+      font-size: 1.1rem;
+      color: var(--light-grey);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 40px;
+    }
+
+    .product-card {
+      background: var(--dark-grey);
+      border: 1px solid rgba(255, 215, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.4s var(--transition-smooth);
+      cursor: pointer;
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--yellow);
+      box-shadow: 0 20px 60px rgba(255, 215, 0, 0.2);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+      position: relative;
+      background: var(--medium-grey);
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s var(--transition-smooth);
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.1);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      padding: 6px 15px;
+      background: var(--yellow);
+      color: var(--black);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-radius: 3px;
+    }
+
+    .product-info {
+      padding: 30px;
+    }
+
+    .product-category {
+      font-size: 12px;
+      color: var(--yellow);
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .product-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--white);
+    }
+
+    .product-description {
+      font-size: 0.95rem;
+      color: var(--light-grey);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .product-features {
+      list-style: none;
+      margin-bottom: 25px;
+    }
+
+    .product-features li {
+      font-size: 0.9rem;
+      color: var(--light-grey);
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .product-features li:last-child {
+      border-bottom: none;
+    }
+
+    .product-features li::before {
+      content: '✓';
+      color: var(--yellow);
+      font-weight: 700;
+      margin-right: 10px;
+    }
+
+    .product-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .product-rating {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .stars {
+      color: var(--yellow);
+      font-size: 0.9rem;
+    }
+
+    .rating-count {
+      font-size: 0.85rem;
+      color: var(--light-grey);
+    }
+
+    .product-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      background: var(--yellow);
+      color: var(--black);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-radius: 4px;
+      transition: all 0.3s var(--transition-smooth);
+    }
+
+    .product-cta:hover {
+      background: var(--yellow-bright);
+      transform: translateX(5px);
+      box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+    }
+
+    /* Why Choose Section */
+    .why-choose {
+      padding: 100px 5%;
+      background: var(--dark-grey);
+    }
+
+    .why-choose-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .why-choose h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 60px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+    }
+
+    .feature {
+      padding: 30px;
+      background: rgba(255, 215, 0, 0.03);
+      border: 1px solid rgba(255, 215, 0, 0.1);
+      border-radius: 8px;
+      transition: all 0.3s var(--transition-smooth);
+    }
+
+    .feature:hover {
+      background: rgba(255, 215, 0, 0.08);
+      border-color: var(--yellow);
+      transform: translateY(-5px);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .feature h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: var(--yellow);
+    }
+
+    .feature p {
+      color: var(--light-grey);
+      line-height: 1.7;
+    }
+
+    /* Footer */
+    footer {
+      padding: 60px 5% 30px;
+      background: var(--black);
+      border-top: 1px solid rgba(255, 215, 0, 0.1);
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--light-grey);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.3s var(--transition-smooth);
+    }
+
+    .footer-links a:hover {
+      color: var(--yellow);
+    }
+
+    .footer-bottom {
+      color: var(--light-grey);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .filters-container {
+        gap: 10px;
+      }
+
+      .filter-btn {
+        padding: 10px 20px;
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 120px 5% 60px;
+      }
+
+      .product-image {
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">
+      <img src="logo.png" alt="Straw Urban Logo" class="nav-logo">
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="back-btn">← Voltar</a>
+      <a href="maquiagem.html">Beleza</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-tag">Streetwear Autêntico</div>
+    <h1>COLEÇÃO DE MODA</h1>
+    <p>
+      Peças selecionadas que transcendem tendências. Cada item carrega identidade, 
+      conforto e a rebeldia criativa que define o streetwear verdadeiro.
+    </p>
+  </section>
+
+  <!-- Filters -->
+  <section class="filters">
+    <div class="filters-container">
+      <button class="filter-btn active" data-filter="todos">Todos</button>
+      <button class="filter-btn" data-filter="camisetas">Camisetas</button>
+      <button class="filter-btn" data-filter="hoodies">Hoodies</button>
+      <button class="filter-btn" data-filter="acessorios">Acessórios</button>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products">
+    <div class="products-container">
+      <div class="section-header">
+        <h2>Nossa Curadoria</h2>
+        <p>Peças que comunicam antes mesmo de você falar</p>
+      </div>
+
+      <div class="products-grid" id="productsGrid">
+        <!-- Product 1 -->
+        <div class="product-card" data-category="camisetas">
+          <div class="product-image">
+            <img src="https://m.media-amazon.com/images/I/61sWzdMIEUL._AC_SX569_.jpg" alt="Camiseta Oversized Streetwear">
+            <div class="product-badge">Destaque</div>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Camiseta Oversized</div>
+            <h3 class="product-title">Camiseta Oversized Premium</h3>
+            <p class="product-description">
+              Modelagem ampla e confortável com tecido 100% algodão penteado de alta gramatura. 
+              Design minimalista que se adapta a qualquer estilo urbano.
+            </p>
+            <ul class="product-features">
+              <li>100% Algodão Penteado Fio 30</li>
+              <li>Gramatura 160g/m² - Extra Durável</li>
+              <li>Modelagem Oversized Unissex</li>
+              <li>Acabamento Premium em Gola e Manga</li>
+            </ul>
+            <div class="product-bottom">
+              <div class="product-rating">
+                <span class="rating-count">Produto Curado</span>
+              </div>
+              <a href="https://www.amazon.com.br/Camiseta-Oversized-Masculina-Streetwear-Penteado/dp/B0FTCDSJ8K?content-id=amzn1.sym.7d2cb2dd-fe35-477b-a1de-d6ea95cca871%3Aamzn1.sym.7d2cb2dd-fe35-477b-a1de-d6ea95cca871&cv_ct_cx=camisas&keywords=camisas&pd_rd_i=B0FTCDSJ8K&pd_rd_r=7275c8eb-96a1-41f6-a43a-37eea0933140&pd_rd_w=WyzJq&pd_rd_wg=tf2QI&pf_rd_p=7d2cb2dd-fe35-477b-a1de-d6ea95cca871&pf_rd_r=TVDAREVS2FE5B7AMTSWN&qid=1769536243&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sr=1-4-fc613efb-89a5-4ecc-a266-4feb7aba5db9-spons&ufe=app_do%3Aamzn1.fos.6d798eae-cadf-45de-946a-f477d47705b9&aref=PSlTAbcV7J&sp_csd=d2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM&th=1&psc=1&linkCode=ll2&tag=andrey1bacela-20&linkId=1f9265c2193593dc47ba7f6ac85c80aa&ref_=as_li_ss_tl" target="_blank" rel="noopener" class="product-cta">
+                Ver Produto →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card" data-category="camisetas">
+          <div class="product-image">
+            <img src="https://http2.mlstatic.com/D_NQ_NP_660099-MLB80164044655_102024-O.webp" alt="Estética Street">
+            <div class="product-badge">Popular</div>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Street Essential</div>
+            <h3 class="product-title">Camiseta Estética Urbana</h3>
+            <p class="product-description">
+              Design exclusivo que captura a essência do streetwear contemporâneo. 
+              Corte moderno com fit que valoriza sem apertar, ideal para o dia a dia urbano.
+            </p>
+            <ul class="product-features">
+              <li>Estampa Exclusiva de Alta Definição</li>
+              <li>Tecido Respirável e Confortável</li>
+              <li>Resistente a Lavagens Frequentes</li>
+              <li>Acabamento Profissional</li>
+            </ul>
+            <div class="product-bottom">
+              <div class="product-rating">
+                <span class="rating-count">Produto Curado</span>
+              </div>
+              <a href="https://mercadolivre.com/sec/25LBdnm" target="_blank" rel="noopener" class="product-cta">
+                Ver Produto →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 - New Addition -->
+        <div class="product-card" data-category="hoodies">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&q=80" alt="Hoodie Premium">
+          </div>
+          <div class="product-info">
+            <div class="product-category">Hoodie Premium</div>
+            <h3 class="product-title">Moletom Oversized Black</h3>
+            <p class="product-description">
+              Moletom premium com capuz e bolso canguru. Tecido grosso e quente, 
+              perfeito para as estações mais frias sem perder o estilo.
+            </p>
+            <ul class="product-features">
+              <li>Moletom Flanelado Extra Macio</li>
+              <li>Capuz com Cordão Ajustável</li>
+              <li>Bolso Canguru Espaçoso</li>
+              <li>Punhos e Barra com Ribana</li>
+            </ul>
+            <div class="product-bottom">
+              <div class="product-rating">
+                <span class="rating-count">Produto Curado</span>
+              </div>
+              <a href="https://www.amazon.com.br/s?k=moletom+oversized" target="_blank" rel="noopener" class="product-cta">
+                Ver Produto →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 - New Addition -->
+        <div class="product-card" data-category="acessorios">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=800&q=80" alt="Boné Snapback">
+          </div>
+          <div class="product-info">
+            <div class="product-category">Acessório Essencial</div>
+            <h3 class="product-title">Boné Snapback Clássico</h3>
+            <p class="product-description">
+              Boné aba reta com design clean e atemporal. Fecho snapback ajustável 
+              e tecido resistente. O complemento perfeito para qualquer look street.
+            </p>
+            <ul class="product-features">
+              <li>Aba Reta Estruturada</li>
+              <li>Fecho Snapback Ajustável</li>
+              <li>Tecido Resistente e Durável</li>
+              <li>Design Minimalista Versátil</li>
+            </ul>
+            <div class="product-bottom">
+              <div class="product-rating">
+                <span class="rating-count">Produto Curado</span>
+              </div>
+              <a href="https://www.amazon.com.br/s?k=bone+snapback" target="_blank" rel="noopener" class="product-cta">
+                Ver Produto →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 5 - New Addition -->
+        <div class="product-card" data-category="camisetas">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=800&q=80" alt="Camiseta Estampada">
+          </div>
+          <div class="product-info">
+            <div class="product-category">Limited Edition</div>
+            <h3 class="product-title">Camiseta Estampada Exclusiva</h3>
+            <p class="product-description">
+              Edição limitada com arte gráfica original. Cada peça conta uma história 
+              através de design ousado e referências à cultura urbana.
+            </p>
+            <ul class="product-features">
+              <li>Arte Gráfica Original Exclusiva</li>
+              <li>Impressão de Alta Qualidade</li>
+              <li>Edição Numerada Limitada</li>
+              <li>Certificado de Autenticidade</li>
+            </ul>
+            <div class="product-bottom">
+              <div class="product-rating">
+                <span class="rating-count">Produto Curado</span>
+              </div>
+              <a href="https://www.amazon.com.br/s?k=camiseta+estampada+streetwear" target="_blank" rel="noopener" class="product-cta">
+                Ver Produto →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 6 - New Addition -->
+        <div class="product-card" data-category="acessorios">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1509695507497-903c140c43b0?w=800&q=80" alt="Mochila Urban">
+          </div>
+          <div class="product-info">
+            <div class="product-category">Acessório Premium</div>
+            <h3 class="product-title">Mochila Urbana Impermeável</h3>
+            <p class="product-description">
+              Mochila com design moderno e funcional. Compartimentos múltiplos, 
+              material impermeável e alças acolchoadas para máximo conforto.
+            </p>
+            <ul class="product-features">
+              <li>Material Impermeável Premium</li>
+              <li>Compartimento para Notebook 15"</li>
+              <li>Bolsos Organizadores Internos</li>
+              <li>Alças e Costas Acolchoadas</li>
+            </ul>
+            <div class="product-bottom">
+              <div class="product-rating">
+                <span class="rating-count">Produto Curado</span>
+              </div>
+              <a href="https://www.amazon.com.br/s?k=mochila+urbana" target="_blank" rel="noopener" class="product-cta">
+                Ver Produto →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Section -->
+  <section class="why-choose">
+    <div class="why-choose-content">
+      <h2>Por Que Escolher Straw Urban?</h2>
+      <div class="features-grid">
+        <div class="feature">
+          <div class="feature-icon">🎯</div>
+          <h3>Curadoria Especializada</h3>
+          <p>
+            Cada peça é cuidadosamente selecionada por especialistas em streetwear. 
+            Não vendemos qualquer coisa — vendemos identidade.
+          </p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">✨</div>
+          <h3>Qualidade Garantida</h3>
+          <p>
+            Trabalhamos apenas com fornecedores confiáveis. Todos os produtos 
+            passam por rigoroso controle de qualidade antes da recomendação.
+          </p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">💰</div>
+          <h3>Melhor Custo-Benefício</h3>
+          <p>
+            Streetwear autêntico não precisa custar uma fortuna. Encontramos 
+            as melhores peças com preços justos e qualidade superior.
+          </p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">🚀</div>
+          <h3>Sempre Atualizado</h3>
+          <p>
+            Nossa curadoria está sempre em evolução. Novos drops, novas marcas, 
+            novos estilos — sempre um passo à frente das tendências.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">Início</a>
+      <a href="maquiagem.html">Beleza</a>
+      <a href="privacidade.html">Privacidade</a>
+      <a href="termos.html">Termos</a>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Straw Urban — Versão Beta | Feito com ❤️ em Salvador, BA</p>
+    </div>
+  </footer>
+
+  <script>
+    // Filter functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const productCards = document.querySelectorAll('.product-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterBtns.forEach(b => b.classList.remove('active'));
+        // Add active class to clicked button
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+
+        productCards.forEach(card => {
+          if (filter === 'todos') {
+            card.style.display = 'block';
+          } else {
+            if (card.getAttribute('data-category') === filter) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          }
+        });
+      });
+    });
+
+    // Smooth scroll for back button
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
